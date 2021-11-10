@@ -18,7 +18,6 @@ class BaseModel:
             self.created_at = datetime.now()
             self.updated_at = self.created_at
         else:
-            str_format = "%Y-%m-%dT%H:%M:%S.%f"
             for key, value in kwargs.items():
                 if key != "__class__":
                     self.__dict__[key] = value
