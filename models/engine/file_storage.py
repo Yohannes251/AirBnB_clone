@@ -1,6 +1,6 @@
-#/usr/bin/python3
+#!/usr/bin/python3
 """
-This module defines a FileStorage class that performs JSON operations
+This module defines a FileStorage class that performs JSON operations.
 """
 
 
@@ -26,7 +26,7 @@ class FileStorage:
 
     def save(self):
         """Serializes __objects to JSON file (storage.json)"""
-        obj_dict ={}
+        obj_dict = {}
         for key, value in self.__objects.items():
             obj_dict[key] = value.to_dict()
         with open(self.__file_path, "w") as f:
@@ -35,7 +35,7 @@ class FileStorage:
     def reload(self):
         """Deserializes the JSON file to __objects"""
         try:
-            with open (self.__file_path, 'r') as f:
+            with open(self.__file_path, 'r') as f:
                 self.__objects = json.load(f)
                 for key, value in self.__objects.items():
                     self.__objects[key] = eval(value["__class__"])(**value)
