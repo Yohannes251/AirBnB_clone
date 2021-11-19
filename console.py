@@ -109,9 +109,9 @@ class HBNBCommand(cmd.Cmd):
         for key, val in objects.items():
             if len(args) != 0:
                 if type(val) is eval(args):
-                    obj_list.append(val)
+                    obj_list.append(val.__str__())
             else:
-                obj_list.append(val)
+                obj_list.append(val.__str__())
 
         print(obj_list)
 

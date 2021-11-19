@@ -16,7 +16,7 @@ class TestBase(unittest.TestCase):
     def setUp(self):
         """Initializing instance"""
         self.my_model = BaseModel()
-        self.my_model.name = "Binita Rai"
+        self.my_model.name = "MyModel"
 
     def TearDown(self):
         """Removing instance."""
