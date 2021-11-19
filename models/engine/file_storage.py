@@ -5,6 +5,7 @@ This module defines a FileStorage class that performs JSON operations
 
 
 import json
+import models
 
 
 class FileStorage:
@@ -24,8 +25,11 @@ class FileStorage:
 
     def save(self):
         """Serializes __objects to JSON file (storage.json)"""
+        obj_dict ={}
+        for key, value in self.__objects.items():
+            obj_dict[key] = value.to_dict()
         with open(self.__file_path, "w") as f:
-            json.dump(self.__objects, f)
+            json.dump(obj_dict, f)
 
     def reload(self):
         """Deserializes the JSON file to __objects"""
