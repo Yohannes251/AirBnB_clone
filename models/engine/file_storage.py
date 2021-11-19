@@ -6,6 +6,7 @@ This module defines a FileStorage class that performs JSON operations
 
 import json
 import models
+from models.base_model import BaseModel
 
 
 class FileStorage:
@@ -37,11 +38,6 @@ class FileStorage:
             with open (self.__file_path, 'r') as f:
                 self.__objects = json.load(f)
                 for key, value in self.__objects.items():
-                    class_name = val["__class__"]
-                    class_name = models.classes[class_name]
-                    self.__objects[key] = class_name(**val)
+                    self.__objects[key] = eval(value["__class__"])(**value)
         except FileNotFoundError:
             pass
-
-
-
