@@ -25,7 +25,7 @@ class testFileStorage(unittest.TestCase):
         """Cleaning up"""
 
         try:
-            os.remove("file.json")
+            os.remove("storage.json")
         except FileNotFoundError:
             pass
 
@@ -56,14 +56,14 @@ class testFileStorage(unittest.TestCase):
     def test_save_file_exists(self):
         """Tests that a file gets created with the name file.json"""
         self.storage.save()
-        self.assertTrue(os.path.isfile("file.json"))
+        self.assertTrue(os.path.isfile("storage.json"))
 
     def test_save_file_read(self):
         """Testing the contents of the files inside the file.json"""
         self.storage.save()
         self.storage.new(self.my_model)
 
-        with open("file.json", encoding="UTF8") as fd:
+        with open("storage.json", encoding="UTF8") as fd:
             content = json.load(fd)
 
         self.assertTrue(type(content) is dict)
@@ -73,7 +73,7 @@ class testFileStorage(unittest.TestCase):
         self.storage.save()
         self.storage.new(self.my_model)
 
-        with open("file.json", encoding="UTF8") as fd:
+        with open("storage.json", encoding="UTF8") as fd:
             content = fd.read()
 
         self.assertIsInstance(content, str)

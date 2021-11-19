@@ -33,7 +33,7 @@ class TestBase(unittest.TestCase):
 
     def test_name(self):
         """Checks that an attribute can be added."""
-        self.assertEqual("Binita Rai", self.my_model.name)
+        self.assertEqual("MyModel", self.my_model.name)
 
     def test_a_updated_created_equal(self):
         """Checks that both dates are equal."""
