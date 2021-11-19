@@ -6,6 +6,7 @@ This module serves as a basement for future modules to inherit from.
 
 from uuid import uuid4
 from datetime import datetime
+from __init__ import storage
 
 
 class BaseModel:
@@ -36,6 +37,7 @@ class BaseModel:
     def save(self):
         """Update the attribute updated_at with the current datetime"""
         self.updated_at = datetime.now()
+
 
     def to_dict(self):
         """
