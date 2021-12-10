@@ -3,6 +3,8 @@
     This module contains a class called Place that inherits from BaseModel
 """
 
+from models.base_model import BaseModel
+
 
 class Place(BaseModel):
     """This class extends the BaseModel class to accomodated places"""
