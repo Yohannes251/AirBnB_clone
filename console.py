@@ -58,7 +58,7 @@ class HBNBCommand(cmd.Cmd):
         try:
             eval(args[0])
         except NameError:
-            print("** class doesn't exist**")
+            print("** class doesn't exist **")
             return
         key = args[0] + "." + args[1]
         key = args[0] + "." + args[1]
